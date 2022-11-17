@@ -111,12 +111,15 @@ float Infininorm(float M[N][N]){
  for (j=0; j<N; j++){
    suma_max += fabs(M[0][j]);
  }
+ //printf("suma_max_inicial: %f\n", suma_max);
  
  for (i=1; i<N; i++){
    for (j=0; j<N; j++){
      suma += fabs(M[i][j]);
    }
    if (suma > suma_max){suma_max=suma;} 
+   //printf("suma: %f\n", suma);
+   //printf("suma_max: %f\n", suma_max);
  }
  return suma_max;
 }
