@@ -77,7 +77,7 @@ float Magnitude( float vect[N] ){
   for (i=0; i<N; i++){
     suma += vect[i]*vect[i];
   }
-  return suma;
+  return sqrt(suma);
   printf("\n");
 }
 
@@ -116,28 +116,29 @@ float Infininorm(float M[N][N]){
    for (j=0; j<N; j++){
      suma += fabs(M[i][j]);
    }
-   if (suma > suma_max){suma_max=suma;} 
+   if (suma > suma_max){suma_max=suma;}
  }
  return suma_max;
-}
+} 
+ 
 
 
 // PAS 9
 float Onenorm( float M[N][N] ){
   int i, j;
-  float suma_max, suma;
-  
+  float suma_max=0, suma=0;
+ 
   for (i=0; i<N; i++){
     suma_max += fabs(M[i][0]);
-  }
-  
+ }
+ 
   for (j=1; j<N; j++){
     for (i=0; i<N; i++){
       suma += fabs(M[i][j]);
-    }
+   }
     if (suma > suma_max){suma_max=suma;}
-  }
-  return suma_max;
+ }
+ return suma_max;
 }
 
 
@@ -145,8 +146,8 @@ float Onenorm( float M[N][N] ){
 float NormFrobenius( float M[N][N] ){
   int i,j;
   float quadrat=0, arrel=0;
-  for (j=1; j<N; j++){
-    for (i=1; i<N; i++){
+  for (j=0; j<N; j++){
+    for (i=0; i<N; i++){
       quadrat += (pow((M[i][j]), 2));
       arrel = sqrt(quadrat);
     }
@@ -290,7 +291,7 @@ int main(){
   mag2 = Magnitude(V2);
   printf("La magnitud de V2 es %f\n", mag2);
   
-  mag3 = Magnitude(V1);
+  mag3 = Magnitude(V3);
   printf("La magnitud de V3 es %f\n", mag3);
   
   // E
