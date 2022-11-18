@@ -106,13 +106,14 @@ void Projection( float vect1[N], float vect2[N], float vectres[N]){
 // PAS 8
 float Infininorm(float M[N][N]){
  int i, j;
- float suma_max=0, suma=0;
+ float suma_max=0, suma;
  
  for (j=0; j<N; j++){
    suma_max += fabs(M[0][j]);
  }
  
  for (i=1; i<N; i++){
+   suma = 0;
    for (j=0; j<N; j++){
      suma += fabs(M[i][j]);
    }
@@ -126,13 +127,14 @@ float Infininorm(float M[N][N]){
 // PAS 9
 float Onenorm( float M[N][N] ){
   int i, j;
-  float suma_max=0, suma=0;
+  float suma_max=0, suma;
  
   for (i=0; i<N; i++){
     suma_max += fabs(M[i][0]);
  }
  
   for (j=1; j<N; j++){
+    suma=0;
     for (i=0; i<N; i++){
       suma += fabs(M[i][j]);
    }
